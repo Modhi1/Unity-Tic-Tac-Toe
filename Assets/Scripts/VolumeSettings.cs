@@ -8,7 +8,6 @@ public class VolumeSettings : MonoBehaviour
 {
     public static VolumeSettings instance;
     [SerializeField] private AudioMixer mixer;
-    [SerializeField] private Slider musicSlider;
 
     const string Music_Mixer = "MusicVol";
 
@@ -31,11 +30,19 @@ public class VolumeSettings : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
-
     public void SetMusicVolume(float value)
     {
         // set the volume of this music (Music_Mixer) to this value 
         mixer.SetFloat(Music_Mixer,value);
     }
+
+    // for updating the music slider value (UI)
+
+    public float GetSliderValue()
+    {
+
+        mixer.GetFloat(Music_Mixer, out float value);
+        return value;
+    }
+
 }

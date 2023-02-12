@@ -1,18 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using TMPro;
 using UnityEngine.UI;
-using Unity.VisualScripting;
-using Unity.Mathematics;
 
 
 namespace SAMI.TICTACTOE.ModhiD
 {
     public class Board : MonoBehaviour
     {
+        #region Variables
         // static to make it accessable from anywhere & only 1 copy 
         public static Board instance;
 
@@ -28,7 +23,7 @@ namespace SAMI.TICTACTOE.ModhiD
 
         private int numOfAvailableCellss;
 
-
+        #endregion
         private void Awake()
         {
             player1 = true;
@@ -59,22 +54,10 @@ namespace SAMI.TICTACTOE.ModhiD
             }
         }
 
-        public void SetPlayer(String player)
-        {
-            if (player == "X")
-            {
-                player1 = true;
-            }
-            else
-                player1 = false;
-        }
-
-
         public void ButtonClickedOnBoard(CellPlacement button, Vector2Int pos)
         {
 
-            if (button.enabled)
-            {
+           
                 int row = (int)pos.x;
                 int colunm = (int)pos.y;
 
@@ -98,14 +81,6 @@ namespace SAMI.TICTACTOE.ModhiD
                 // Change turns between X and O
                 player1 = !player1;
 
-
-            }
-
-            else
-            {
-               // Debug.Log("Button is NOT Enabled");
-
-            }
 
         }
 
