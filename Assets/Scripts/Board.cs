@@ -83,7 +83,6 @@ namespace SAMI.TICTACTOE.ModhiD
 
 
         }
-
         // method that change turns & returns the player type 
         public void ChangePlayerType()
         {
